@@ -1,0 +1,13 @@
+<p>Component B</p>
+<ng-container
+  *rxLet="taskTitles$; let titles; error: error; suspense: suspense"
+>
+  @if (titles.length > 0) {
+  <span>Task titles: {{ titles }}</span>
+  } @else {
+  <span>No tasks found</span>
+  }
+</ng-container>
+
+<ng-template #suspense>Tasks loading...</ng-template>
+<ng-template #error>ERROR</ng-template>
