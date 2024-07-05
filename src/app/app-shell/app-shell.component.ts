@@ -1,19 +1,14 @@
-import { Component, inject } from '@angular/core';
-import { RxState } from '@rx-angular/state';
-
-interface AppShellState {
-  sidebarOpen: boolean;
-}
+import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
+import { RxLet } from '@rx-angular/template/let';
 
 @Component({
   selector: 'app-shell',
   standalone: true,
-  imports: [],
+  imports: [RxLet],
   templateUrl: './app-shell.component.html',
   styleUrl: './app-shell.component.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AppShellComponent {
-  private readonly state = inject<RxState<AppShellState>>(RxState);
-
-  readonly viewState$ = this.state.select();
+  public sidebarOpen = signal(false);
 }

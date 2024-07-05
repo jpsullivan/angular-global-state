@@ -1,4 +1,9 @@
-<ng-container *rxLet="viewState$; let vs">
-  <nav class="navigation"></nav>
-  <div class="container"></div>
-</ng-container>
+<nav class="navigation">
+  <button (click)="sidebarOpen.set(!sidebarOpen())">Toggle sidebar</button>
+  <span>Sidebar open: {{ sidebarOpen() }}</span>
+</nav>
+<div class="container">
+  <div *rxLet="[]">
+    <ng-content></ng-content>
+  </div>
+</div>
