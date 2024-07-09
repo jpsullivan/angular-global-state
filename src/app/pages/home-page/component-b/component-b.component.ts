@@ -1,9 +1,9 @@
 import { Component, Input } from '@angular/core';
 import { selectSlice } from '@rx-angular/state/selections';
 import { RxLet } from '@rx-angular/template/let';
-import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { Task } from '../../../app.state';
+import { RxInput } from '../../../shared/util/rx/rx-input';
 import { RxComponent } from '../../../shared/util/rx/rx.component';
 
 interface ComponentBState {
@@ -18,7 +18,7 @@ interface ComponentBState {
   styleUrl: './component-b.component.scss',
 })
 export class ComponentBComponent extends RxComponent<ComponentBState> {
-  @Input() set tasks(tasks: Task[] | Observable<Task[]>) {
+  @Input() set tasks(tasks: RxInput<Task[]>) {
     this.setProperty('tasks', tasks);
   }
 
