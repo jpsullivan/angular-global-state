@@ -3,7 +3,7 @@ import { selectSlice } from '@rx-angular/state/selections';
 import { RxLet } from '@rx-angular/template/let';
 import { map } from 'rxjs/operators';
 import { Task } from '../../../app.state';
-import { RxInput } from '../../../shared/util/rx/rx-input';
+import { RxInputSource } from '../../../shared/util/rx/rx-input-types';
 import { RxComponent } from '../../../shared/util/rx/rx.component';
 
 interface ComponentBState {
@@ -18,7 +18,7 @@ interface ComponentBState {
   styleUrl: './component-b.component.scss',
 })
 export class ComponentBComponent extends RxComponent<ComponentBState> {
-  @Input() set tasks(tasks: RxInput<Task[]>) {
+  @Input() set tasks(tasks: RxInputSource<Task[]>) {
     this.setProperty('tasks', tasks);
   }
 
